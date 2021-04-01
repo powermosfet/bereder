@@ -1,0 +1,20 @@
+menu "Lamp MQTT Configuration"
+
+    config MQTT_HOST
+        string "MQTT Broker host"
+        default "mqtt://192.168.1.1"
+        help
+            Hostname of MQTT broker
+
+    config MQTT_TOPIC_ALIVE
+        string "MQTT Topic: alive"
+        default "house/basement/laundry_room/boiler/alive"
+        help
+            Topic to subscribe to for color
+
+    config MQTT_TOPIC_ALIVE
+        string "MQTT Topic: status"
+        default "house/basement/laundry_room/boiler/status"
+        help
+            Topic to subscribe to for color
+endmenu
