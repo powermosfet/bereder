@@ -2,3 +2,4 @@
 /hardware/bereder/fp-info-cache
 /firmware/c-freertos/.sdk
 /firmware/c-freertos/build
+/firmware/c-freertos/sdkconfig*

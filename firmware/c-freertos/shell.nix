@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> {}
-, myPkgs ? import (fetchTarball "https://github.com/powermosfet/asmunds-nix-packages/tarball/36def4d4ff55f7d1c73951e77e56a864a0309034") { }
+, myPkgs ? import (fetchTarball "https://github.com/powermosfet/asmunds-nix-packages/tarball/b4bb3c35e813130549ef81a8c5f9487e46572b9c") { }
 }:
 
 let
@@ -17,11 +17,17 @@ pkgs.mkShell {
 
     pkgs.ncurses
     pkgs.git
+    pkgs.flex
+    pkgs.which
+    pkgs.bison
+    pkgs.gperf
+    pkgs.wget
   ];
 
   shellHook = ''
     LOCALE_ARCHIVE="$(nix-build --no-out-link '<nixpkgs>' -A glibcLocales)/lib/locale/locale-archive"
 
+    rm -r ${sdkPath}
     mkdir -p ${sdkPath}
     cp -Ru ${myPkgs.esp8266-rtos-sdk}/* ${sdkPath}/
     chmod -R u+w ${sdkPath}
